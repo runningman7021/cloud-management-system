@@ -1,0 +1,47 @@
+#端口号
+server:
+  port: 8763
+#注册到有用户认证的eurekaserver集群上
+eureka:
+  client:
+    service-url:
+      defaultZone: http://runningman:runningman7021@localhost:8761/eureka/,http://runningman:runningman7021@localhost:8762/eureka/
+#微服务实例名称
+spring:
+  application:
+    name: cloud-config-server
+
+  #配置文件激活可选：
+  #本地读取：native
+  #git读取 : git
+  profiles:
+      active: git
+  cloud:
+       config:
+         server:
+           #配置文件本地读取
+           native:
+             search-locations: classpath:/config
+           #配置文件github上读取
+           git:
+             username: runningman7021
+             password: rm100711
+             search-paths: cloud-config
+             uri:   https://github.com/runningman7021/cloud-management-system
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
